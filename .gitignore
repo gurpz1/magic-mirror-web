@@ -5,3 +5,6 @@ bower_components
 
 # Main distribution
 dist
+
+# log files
+*.log

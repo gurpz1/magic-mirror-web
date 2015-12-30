@@ -1,13 +1,14 @@
 {
-  "name": "MagicMirrorWeb",
+  "name": "magic-mirror-web",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
+  "repository": "https://github.com/gurpz1/magic-mirror-web",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Gurpal Sagoo",
-  "license": "MIT",
+  "license": "GPL V2",
   "devDependencies": {
     "gulp-concat": "^2.6.0",
     "gulp": "^3.9.0",

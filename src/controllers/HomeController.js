@@ -6,7 +6,7 @@
 		'$scope',
 		'$mdToast',
 		'$window',
-		'$interval',
+		'$interval'
 		function($scope, $mdToast, $window, $interval) {
 
 			var nav = $window.navigator;
@@ -27,8 +27,10 @@
 				);
 			});
 
+			// Capture the image from the video
 			$interval(function(video, ctx) {
 				ctx.drawImage(video,0,0,400,300);
+				Util.dataURLToBlob(canvas.toDataURL());
 			}, 300, 0, true, video, ctx);
 
 		}]);

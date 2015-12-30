@@ -8,6 +8,7 @@
 		'ngAria',
 		'ngMaterial',
 		'ngRoute',
+		'ngWebSocket',
 		'magicMirrorPartials'
 	]).config(['$routeProvider', function($routeProvider) {
 		$routeProvider
