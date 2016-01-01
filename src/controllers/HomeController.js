@@ -7,7 +7,8 @@
 		'$mdToast',
 		'$window',
 		'$interval',
-		function($scope, $mdToast, $window, $interval) {
+		'$log',
+		function($scope, $mdToast, $window, $interval, $log) {
 
 			var nav = $window.navigator;
 			var video = document.getElementById('liveVideo');
@@ -16,7 +17,21 @@
 
 			var ws = new WebSocket("ws://localhost:8080/detect");
 	    ws.onopen = function () {
-	              console.log("Openened connection to websocket");
+				$log.debug("Opened connection to websocket");
+				// Capture the image from the video
+				$interval(function(video, ctx) {
+					ctx.drawImage(video,0,0,400,300);
+					var blob = Util.dataURLToBlob(canvas.toDataURL());
+					ws.send(blob);
+				}, 500, 0, true, video, ctx);
+
+	    };
+
+	    ws.onmessage = function(message) {
+	    	$log.debug("message received");
+	    	var rec = document.getElementById('received');
+	    	var url = $window.URL.createObjectURL(message.data);
+	    	rec.src = url;
 	    };
 
 			nav.webkitGetUserMedia({video:true}, function(stream) {
@@ -31,14 +46,6 @@
 					.position("bottom right")
 				);
 			});
-
-			// Capture the image from the video
-			$interval(function(video, ctx) {
-				ctx.drawImage(video,0,0,400,300);
-				var blob = Util.dataURLToBlob(canvas.toDataURL());
-				ws.send(blob);
-			}, 300, 0, true, video, ctx);
-
 		}]);
 
 })();
