@@ -81,7 +81,7 @@ gulp.task('connect', function() {
   plugins.connect.server({
     root: '.',
     port: '3000',
-    livereload: true
+    livereload: false
   });
 });
 
