@@ -1,0 +1,27 @@
+<div class="md-display-2">Training</div>
+
+<div layout="row"  layout-align="left center">
+
+  <md-input-container>
+    <label>Images to capture: </label>
+    <input ng-disabled="started" ng-model="facesToGet">
+  </md-input-container> 
+
+  <md-button ng-click="switchDetection()" class="md-accent md-raised md-hue-2">{{state}}</md-button>
+  <md-button ng-click="train()" class="md-accent md-raised md-hue-2">Train All Captured Data</md-button>
+</div>
+
+<br/>
+
+<div layout="row" layout-align="space-between center">
+  <div layout="column">
+    <h3> Live Video</h3>
+    <video id="liveVideo" width="400" height="300" preload="auto"></video>
+  </div>
+  <div layout="column" ng-show="started">
+    <div layout="row" layout-align="space-around center">
+      <h3> {{facesSent}} Images Sent to Server</h3>
+    </div>
+    <canvas id="sent" width="400" height="300"></canvas>
+  </div>
+</div>

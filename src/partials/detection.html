@@ -1,0 +1,23 @@
+<div class="md-display-2">Detection Test</div>
+
+<div layout="row"  layout-align="start center">
+  <md-button ng-click="switchDetection()" class="md-accent md-raised md-hue-2">{{state}}</md-button>
+  <div ng-if="started"> Posting every {{interval}}s</div>
+</div>
+
+<br/>
+<br/>
+
+<div layout="row" layout-align="space-between center">
+  <div layout="column">
+    <h3> Live Video</h3>
+    <video id="liveVideo" width="400" height="300" preload="auto"></video>
+  </div>
+  <div layout="column" ng-show="started">
+    <div layout="row" layout-align="space-around center">
+      <h3> Image Sent to Server</h3>
+      <h4> Found {{facesCount}} Faces </h4>
+    </div>
+    <canvas id="sent" width="400" height="300"></canvas>
+  </div>
+</div>

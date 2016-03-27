@@ -13,8 +13,20 @@
 	]).config(['$routeProvider', function($routeProvider) {
 		$routeProvider
 		.when('/', {
-			controller: 'HomeController',
+			controller: 'homeController',
 			templateUrl:'partials/home.html'
+		})
+		.when('/detection', {
+			controller: 'detectionController',
+			templateUrl:'partials/detection.html'
+		})
+		.when('/recognition', {
+			controller: 'recognitionController',
+			templateUrl:'partials/recognition.html'
+		})
+		.when('/training', {
+			controller: 'trainingController',
+			templateUrl:'partials/training.html'
 		})
 		.otherwise({
 			redirectTo: '/'
