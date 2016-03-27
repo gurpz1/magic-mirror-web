@@ -7,6 +7,11 @@
     <input ng-disabled="started" ng-model="facesToGet">
   </md-input-container> 
 
+  <md-input-container>
+    <label>Enter name: </label>
+    <input ng-disabled="started" ng-model="modelName">
+  </md-input-container> 
+
   <md-button ng-click="switchDetection()" class="md-accent md-raised md-hue-2">{{state}}</md-button>
   <md-button ng-click="train()" class="md-accent md-raised md-hue-2">Train All Captured Data</md-button>
 </div>

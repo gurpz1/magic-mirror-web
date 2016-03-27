@@ -11,7 +11,7 @@
     '$http',
     function($scope, $mdToast, $window, $interval, $log, $http) {
 
-      $scope.facesToGet =1000;
+      $scope.facesToGet =100;
       $scope.facesSent =0;
       $scope.interval = 100;
       $scope.started = false;
@@ -35,7 +35,7 @@
             var toPost ={};
             toPost.image = canvas.toDataURL("image/png");
 
-            $http.put("http://localhost:9000/faces/train/gurpal", toPost)
+            $http.put("http://localhost:9000/faces/train/" + $scope.modelName, toPost)
             .then(function(data) {
               $scope.facesCount = data.data;
               $log.debug("Posted");
@@ -43,7 +43,7 @@
             
             $scope.facesSent++;
 
-          }, $scope.interval, 0, true, video, ctx);
+          }, $scope.interval, $scope.facesToGet, true, video, ctx);
         } else {
           if(angular.isDefined(poster)) {
             $log.info("Stopping test");

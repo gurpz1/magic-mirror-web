@@ -1,1 +1,16 @@
 <div class="md-display-2">Recognition Test</div>
+
+<div layout="row"  layout-align="start center">
+  <md-button ng-click="submit()" class="md-accent md-raised md-hue-2">Find Me</md-button>
+  <h3 ng-if="found"> You are: {{faceName}} </h3>
+</div>
+
+<br/>
+<br/>
+
+<div layout="row" layout-align="space-between center">
+  <div layout="column">
+    <h3> Live Video</h3>
+    <video id="liveVideo" width="400" height="300" preload="auto"></video>
+    <canvas ng-show="false" id="sent" width="400" height="300"></canvas>
+</div>
